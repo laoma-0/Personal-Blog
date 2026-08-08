@@ -19,6 +19,7 @@ export default function RootLayout() {
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="article/list" options={{ title: '文章列表' }} />
         <Stack.Screen name="article/[id]" options={{ title: '文章详情' }} />
+        <Stack.Screen name="archive" options={{ title: '归档' }} />
         <Stack.Screen name="message" options={{ title: '留言板' }} />
       </Stack>
     </SafeAreaProvider>

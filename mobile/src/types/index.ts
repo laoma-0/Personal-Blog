@@ -77,3 +77,17 @@ export interface SiteStats {
   tagCount?: number;
   viewCount?: number;
 }
+
+// 归档（按年份分组）——对齐后端 ArchiveVO
+export interface ArchiveItem {
+  id: number;
+  title: string;
+  /** 日期字符串 MM-DD */
+  date: string;
+}
+
+export interface ArchiveGroup {
+  /** 年份，如 "2026" */
+  year: string;
+  articles: ArchiveItem[];
+}

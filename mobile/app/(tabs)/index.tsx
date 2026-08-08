@@ -14,12 +14,12 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ArticleCard } from '../../src/components/ArticleCard';
 import { Carousel } from '../../src/components/Carousel';
-import { EmptyState, ErrorState, Loading } from '../../src/components/States';
+import { FadeInView } from '../../src/components/FadeInView';
+import { ListSkeleton } from '../../src/components/Skeleton';
+import { EmptyState, ErrorState } from '../../src/components/States';
 import { getArticleList } from '../../src/services/article';
-import { getSiteStats } from '../../src/services/site';
-import { color, font, radius, shadow, space } from '../../src/theme/tokens';
-import type { ArticleListItem, SiteStats } from '../../src/types';
-import { formatCount } from '../../src/utils/format';
+import { color, font, space } from '../../src/theme/tokens';
+import type { ArticleListItem } from '../../src/types';
 
 const PAGE_SIZE = 10;
 
@@ -28,7 +28,6 @@ export default function HomeScreen() {
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
 
-  const [stats, setStats] = useState<SiteStats | null>(null);
   const [banners, setBanners] = useState<ArticleListItem[]>([]);
   const [list, setList] = useState<ArticleListItem[]>([]);
   const [page, setPage] = useState(1);
@@ -42,11 +41,7 @@ export default function HomeScreen() {
   const loadAll = useCallback(async () => {
     setError(null);
     try {
-      const [s, first] = await Promise.all([
-        getSiteStats().catch(() => null),
-        getArticleList({ pageNum: 1, pageSize: PAGE_SIZE }),
-      ]);
-      setStats(s);
+      const first = await getArticleList({ pageNum: 1, pageSize: PAGE_SIZE });
       const records = first.records ?? [];
       setList(records);
       setTotal(first.total ?? 0);
@@ -95,8 +90,8 @@ export default function HomeScreen() {
 
   const Header = (
     <View style={{ paddingTop: insets.top + space.sm }}>
-      {/* 搜索行 */}
-      <View style={styles.searchRow}>
+      {/* 搜索行（单独左右留白，轮播保持整屏铺满） */}
+      <View style={[styles.searchRow, styles.hPad]}>
         <View style={styles.searchBox}>
           <Feather name="search" size={16} color={color.textPlaceholder} />
           <TextInput
@@ -109,40 +104,32 @@ export default function HomeScreen() {
             onSubmitEditing={onSearch}
           />
         </View>
-        <Pressable style={styles.iconBtn} onPress={() => router.push('/article/list')}>
-          <Feather name="grid" size={18} color={color.textRegular} />
+        <Pressable style={styles.iconBtn} onPress={() => router.push('/archive')}>
+          <Feather name="calendar" size={18} color={color.textRegular} />
         </Pressable>
       </View>
 
-      {/* 轮播 */}
+      {/* 轮播（整屏宽度，卡片内缩留白） */}
       {banners.length > 0 ? (
         <View style={{ marginTop: space.md }}>
-          <Carousel items={banners} width={width} onPressItem={(item) => router.push(`/article/${item.id}`)} />
+          <Carousel screenWidth={width} items={banners} onPressItem={(item) => router.push(`/article/${item.id}`)} />
         </View>
       ) : null}
 
-      {/* 作者卡 */}
-      <View style={styles.authorCard}>
-        <View style={styles.avatar}>
-          <Feather name="feather" size={22} color={color.white} />
-        </View>
-        <View style={styles.authorInfo}>
-          <Text style={styles.authorName}>{stats?.author ?? '博主'}</Text>
-          <Text style={styles.authorIntro} numberOfLines={1}>
-            {stats?.intro ?? '软件工程学习笔记与随笔'}
-          </Text>
-          <Text style={styles.authorStat}>
-            文章 {formatCount(stats?.articleCount)} · 标签 {formatCount(stats?.tagCount)} · 访问{' '}
-            {formatCount(stats?.viewCount)}
-          </Text>
-        </View>
-      </View>
-
-      <Text style={styles.h2}>最新文章</Text>
+      <Text style={[styles.h2, styles.hPad]}>最新文章</Text>
     </View>
   );
 
-  if (loading) return <Loading />;
+  if (loading) {
+    return (
+      <View style={styles.page}>
+        {Header}
+        <View style={styles.hPad}>
+          <ListSkeleton count={4} />
+        </View>
+      </View>
+    );
+  }
   if (error) return <ErrorState text={error} onRetry={onRefresh} />;
 
   return (
@@ -151,9 +138,11 @@ export default function HomeScreen() {
         data={list}
         keyExtractor={(item) => String(item.id)}
         ListHeaderComponent={Header}
-        contentContainerStyle={{ paddingHorizontal: space.lg, paddingBottom: space.xxl }}
+        contentContainerStyle={{ paddingBottom: space.xxl }}
         renderItem={({ item, index }) => (
-          <ArticleCard article={item} index={index} onPress={() => router.push(`/article/${item.id}`)} />
+          <FadeInView delay={Math.min(index, 6) * 60} style={styles.hPad}>
+            <ArticleCard article={item} index={index} onPress={() => router.push(`/article/${item.id}`)} />
+          </FadeInView>
         )}
         ListEmptyComponent={<EmptyState text="还没有文章" />}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={color.primary} />}
@@ -166,6 +155,7 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   page: { flex: 1, backgroundColor: color.bgPage },
+  hPad: { paddingHorizontal: space.lg },
   searchRow: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
   searchBox: {
     flex: 1,
@@ -191,22 +181,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  authorCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: space.md,
-    backgroundColor: color.bg,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: color.borderLight,
-    padding: space.lg,
-    marginTop: space.lg,
-    ...shadow.sm,
-  },
-  avatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: color.primary, alignItems: 'center', justifyContent: 'center' },
-  authorInfo: { flex: 1, minWidth: 0, gap: 3 },
-  authorName: { fontSize: font.cardTitle, fontWeight: '600', color: color.textPrimary },
-  authorIntro: { fontSize: 13, color: color.textSecondary },
-  authorStat: { fontSize: 12, color: color.textSecondary, marginTop: 2 },
   h2: { fontSize: font.cardTitle, fontWeight: '600', color: color.textPrimary, marginTop: space.xl, marginBottom: space.md },
 });

@@ -14,9 +14,10 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
-import RenderHtml from 'react-native-render-html';
 import { withBase } from '../../src/config';
-import { EmptyState, ErrorState, Loading } from '../../src/components/States';
+import { ArticleHtml } from '../../src/components/ArticleHtml';
+import { DetailSkeleton } from '../../src/components/Skeleton';
+import { EmptyState, ErrorState } from '../../src/components/States';
 import { getArticleDetail, likeArticle, unlikeArticle } from '../../src/services/article';
 import { getComments, submitComment } from '../../src/services/comment';
 import { color, font, gradient, radius, shadow, space } from '../../src/theme/tokens';
@@ -111,7 +112,7 @@ export default function ArticleDetailScreen() {
     }
   };
 
-  if (loading) return <Loading />;
+  if (loading) return <DetailSkeleton />;
   if (error) return <ErrorState text={error} onRetry={load} />;
   if (!article) return <EmptyState text="文章不存在" />;
 
@@ -135,11 +136,9 @@ export default function ArticleDetailScreen() {
 
         {/* 正文 */}
         <View style={styles.htmlBox}>
-          <RenderHtml
+          <ArticleHtml
             contentWidth={contentWidth}
-            source={{ html: article.contentHtml || article.content || '<p>暂无内容</p>' }}
-            baseStyle={styles.htmlBase}
-            systemFonts={[]}
+            html={article.contentHtml || article.content || '<p>暂无内容</p>'}
           />
         </View>
 
@@ -216,7 +215,6 @@ const styles = StyleSheet.create({
   title: { fontSize: font.articleTitle, fontWeight: '600', color: color.textPrimary, lineHeight: 30 },
   meta: { fontSize: 13, color: color.textSecondary, marginTop: space.sm },
   htmlBox: { marginTop: space.lg },
-  htmlBase: { fontSize: 15, lineHeight: 28, color: color.textRegular },
   likeWrap: { alignItems: 'center', marginTop: space.xl },
   likeBtn: {
     flexDirection: 'row',

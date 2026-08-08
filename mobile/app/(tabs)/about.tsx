@@ -52,6 +52,13 @@ export default function AboutScreen() {
 
       {/* 站点信息 */}
       <CellGroup label="站点信息">
+        <Cell
+          icon="calendar"
+          iconBg={color.morandiCyan}
+          title="文章归档"
+          value="按年份浏览全部文章"
+          onPress={() => router.push('/archive')}
+        />
         <Cell icon="info" iconBg={color.morandiCyan} title="版本号" value="v1.0.0" showArrow={false} />
         <Cell icon="settings" iconBg={color.morandiGreen} title="技术栈" value="React Native + Expo" showArrow={false} />
         <Cell

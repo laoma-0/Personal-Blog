@@ -2,7 +2,9 @@ import { Stack, useLocalSearchParams, useNavigation, useRouter } from 'expo-rout
 import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { ArticleCard } from '../../src/components/ArticleCard';
-import { EmptyState, ErrorState, Loading } from '../../src/components/States';
+import { FadeInView } from '../../src/components/FadeInView';
+import { ListSkeleton } from '../../src/components/Skeleton';
+import { EmptyState, ErrorState } from '../../src/components/States';
 import { getArticleList } from '../../src/services/article';
 import { color, space } from '../../src/theme/tokens';
 import type { ArticleListItem } from '../../src/types';
@@ -74,7 +76,9 @@ export default function ArticleListScreen() {
     <View style={styles.page}>
       <Stack.Screen options={{}} />
       {loading ? (
-        <Loading />
+        <View style={{ padding: space.lg }}>
+          <ListSkeleton count={5} />
+        </View>
       ) : error ? (
         <ErrorState text={error} onRetry={loadFirst} />
       ) : (
@@ -83,7 +87,9 @@ export default function ArticleListScreen() {
           keyExtractor={(item) => String(item.id)}
           contentContainerStyle={{ padding: space.lg }}
           renderItem={({ item, index }) => (
-            <ArticleCard article={item} index={index} onPress={() => router.push(`/article/${item.id}`)} />
+            <FadeInView delay={Math.min(index, 6) * 60}>
+              <ArticleCard article={item} index={index} onPress={() => router.push(`/article/${item.id}`)} />
+            </FadeInView>
           )}
           ListEmptyComponent={<EmptyState text="还没有文章" />}
           onEndReachedThreshold={0.3}
