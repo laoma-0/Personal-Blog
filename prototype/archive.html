@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>归档 · 我的个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .page-hero { padding: var(--space-2xl) 0 var(--space-xl); text-align: center; background: var(--gradient-header); }
+  .page-hero h1 { font-size: 32px; font-weight: 500; }
+  .page-hero p { color: var(--color-text-secondary); margin-top: var(--space-sm); }
+  .archive-wrap { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0; }
+  .year { font-size: var(--font-h2); font-weight: 500; color: var(--color-primary); margin: var(--space-xl) 0 var(--space-lg); }
+  .timeline { position: relative; padding-left: var(--space-xl); }
+  .timeline::before { content:''; position:absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--color-border); }
+  .tl-item { position: relative; padding: var(--space-md) 0; }
+  .tl-item::before { content:''; position:absolute; left: -21px; top: 22px; width: 12px; height: 12px; border-radius: 50%; background: var(--gradient-primary); box-shadow: 0 0 0 4px var(--color-primary-light); }
+  .tl-item .date { font-size: var(--font-caption); color: var(--color-text-secondary); }
+  .tl-item .t-title { font-size: var(--font-body-lg); transition: color var(--dur-base) ease; }
+  .tl-item:hover .t-title { color: var(--color-primary); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="logo">◍ 我的博客</div>
+    <nav class="nav">
+      <a href="index.html">首页</a><a href="category.html">分类</a>
+      <a href="archive.html">归档</a><a href="message.html">留言</a><a href="#">关于</a>
+    </nav>
+    <input class="search-box" placeholder="搜索文章…">
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container"><h1>时光归档</h1><p>共 32 篇文章，记录每一段思考</p></div>
+</section>
+
+<div class="container">
+  <div class="archive-wrap fade-up">
+    <div class="year">2026</div>
+    <div class="timeline">
+      <div class="tl-item"><div class="date">08-01</div><a class="t-title" href="article.html">从零搭建 Spring Boot + Vue 个人博客</a></div>
+      <div class="tl-item"><div class="date">07-28</div><a class="t-title" href="article.html">MyBatis-Plus 分页与条件构造器实战</a></div>
+      <div class="tl-item"><div class="date">07-20</div><a class="t-title" href="article.html">Vue3 组合式 API 的心智模型</a></div>
+      <div class="tl-item"><div class="date">07-12</div><a class="t-title" href="article.html">专升本上岸后，我的第一个学期计划</a></div>
+    </div>
+    <div class="year">2025</div>
+    <div class="timeline">
+      <div class="tl-item"><div class="date">12-30</div><a class="t-title" href="article.html">年终总结：从大专到本科的一年</a></div>
+      <div class="tl-item"><div class="date">11-15</div><a class="t-title" href="article.html">初识 Linux：常用命令随手记</a></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container">© 2026 我的个人博客</div></footer>
+</body>
+</html>

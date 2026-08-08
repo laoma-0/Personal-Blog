@@ -1,0 +1,173 @@
+/* ============================================================
+   全局设计令牌 —— 低饱和莫兰迪 / 水彩渐变风格
+   取自《个人博客系统 · UI 设计规范 V2.0》第 12 章
+   ============================================================ */
+:root {
+  /* 主色 —— 雾蓝灰 */
+  --color-primary: #8AA6B8;
+  --color-primary-hover: #7A97AA;
+  --color-primary-active: #6A889C;
+  --color-primary-light: #E8EEF2;
+
+  /* 莫兰迪辅助色 */
+  --color-morandi-pink: #C9AEB0;
+  --color-morandi-green: #A9B8A0;
+  --color-morandi-apricot: #D2B49C;
+  --color-morandi-purple: #B0A6C0;
+  --color-morandi-cyan: #9DB8B6;
+
+  /* 水彩渐变 */
+  --gradient-header: linear-gradient(135deg, #E8EEF2 0%, #F3ECEF 50%, #EDF0EA 100%);
+  --gradient-primary: linear-gradient(135deg, #9DB8B6 0%, #8AA6B8 100%);
+  --gradient-soft: linear-gradient(135deg, #F5EFEF 0%, #EEF2F4 100%);
+
+  /* 功能色（低饱和） */
+  --color-success: #8FB89A;
+  --color-warning: #D8B98A;
+  --color-danger: #C89592;
+  --color-info: #A6ADB4;
+
+  /* 中性色（暖调） */
+  --color-text-primary: #3A3B3C;
+  --color-text-regular: #5C5E60;
+  --color-text-secondary: #8C8E90;
+  --color-text-placeholder: #BEC0C2;
+  --color-border: #E6E3E0;
+  --color-border-light: #F1EFEC;
+  --color-bg: #FDFCFA;
+  --color-bg-page: #F6F4F1;
+
+  /* 字号 */
+  --font-h1: 30px;
+  --font-h2: 24px;
+  --font-h3: 19px;
+  --font-body-lg: 17px;
+  --font-body: 15px;
+  --font-caption: 13px;
+  --line-height-body: 1.9;
+
+  /* 间距（大留白） */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+
+  /* 圆角 */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* 阴影（弥散柔光） */
+  --shadow-sm: 0 4px 16px rgba(120,110,100,0.05);
+  --shadow-md: 0 8px 32px rgba(120,110,100,0.07);
+  --shadow-lg: 0 16px 48px rgba(120,110,100,0.10);
+
+  /* 动效（极缓慢微动效） */
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-normal: 0.4s;
+  --dur-slow: 0.8s;
+  --dur-slower: 1.2s;
+
+  /* 内容区宽度 */
+  --content-width: 1080px;
+
+  /* ===== 映射到 Element Plus 主题变量 ===== */
+  --el-color-primary: var(--color-primary);
+  --el-color-success: var(--color-success);
+  --el-color-warning: var(--color-warning);
+  --el-color-danger: var(--color-danger);
+  --el-color-info: var(--color-info);
+  --el-border-radius-base: var(--radius-sm);
+  --el-text-color-primary: var(--color-text-primary);
+  --el-text-color-regular: var(--color-text-regular);
+}
+
+/* ============================================================
+   基础重置与排版
+   ============================================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Segoe UI", -apple-system, sans-serif;
+  font-size: var(--font-body);
+  font-weight: 400;
+  line-height: var(--line-height-body);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; transition: color var(--dur-normal) var(--ease-soft); }
+a:hover { color: var(--color-primary); }
+
+img { max-width: 100%; display: block; }
+
+/* 容器 */
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+/* 通用卡片 */
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border-light);
+  transition: transform var(--dur-slow) var(--ease-soft),
+              box-shadow var(--dur-slow) var(--ease-soft);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 2px 12px;
+  font-size: var(--font-caption);
+  color: var(--color-primary-active);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   动效
+   ============================================================ */
+/* 进场：渐显上移 */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fadeUp var(--dur-slower) var(--ease-soft) both;
+}
+
+/* 呼吸 */
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+.breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* 尊重「减少动态」偏好 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001s !important;
+    transition-duration: 0.001s !important;
+  }
+}

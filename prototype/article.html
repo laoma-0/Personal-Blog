@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文章详情 · 我的个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .article-header {
+    padding: var(--space-3xl) 0 var(--space-xl);
+    text-align: center;
+    background: var(--gradient-header);
+  }
+  .article-header h1 { font-size: 34px; font-weight: 500; letter-spacing: 0.02em; max-width: var(--content-width); margin: 0 auto var(--space-md); }
+  .article-header .meta { justify-content: center; }
+  .meta { display: flex; gap: var(--space-md); color: var(--color-text-secondary); font-size: var(--font-caption); align-items: center; flex-wrap: wrap; }
+
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr var(--content-width) 1fr;
+    padding: var(--space-2xl) 0;
+    gap: var(--space-lg);
+  }
+  /* 正文放中间栏 */
+  .post-body { grid-column: 2; }
+  .post-content { font-size: var(--font-body-lg); line-height: var(--line-height-body); color: var(--color-text-regular); }
+  .post-content h2 { font-size: var(--font-h2); font-weight: 500; color: var(--color-text-primary); margin: var(--space-xl) 0 var(--space-md); }
+  .post-content p { margin-bottom: var(--space-lg); }
+  .post-content pre {
+    background: var(--color-border-light);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    font-family: 'JetBrains Mono', Consolas, monospace;
+    font-size: 14px; line-height: 1.7;
+    overflow-x: auto;
+    color: var(--color-text-primary);
+  }
+  .post-content blockquote {
+    border-left: 3px solid var(--color-primary);
+    background: var(--color-primary-light);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    color: var(--color-text-regular);
+    margin-bottom: var(--space-lg);
+  }
+
+  /* 右侧目录 TOC，随滚动固定 */
+  .toc {
+    grid-column: 3;
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-lg));
+    align-self: start;
+    padding: var(--space-lg);
+    font-size: var(--font-caption);
+  }
+  .toc h4 { font-weight: 500; margin-bottom: var(--space-md); color: var(--color-text-primary); }
+  .toc a { display: block; padding: 6px 0; color: var(--color-text-secondary); border-left: 2px solid transparent; padding-left: var(--space-md); transition: all var(--dur-base) var(--ease-soft); }
+  .toc a.active, .toc a:hover { color: var(--color-primary); border-left-color: var(--color-primary); }
+
+  .post-tags { display: flex; gap: var(--space-sm); margin: var(--space-xl) 0; }
+
+  /* 评论区 */
+  .comments { grid-column: 2; margin-top: var(--space-2xl); }
+  .comments h3 { font-size: var(--font-h3); font-weight: 500; margin-bottom: var(--space-lg); }
+  .comment-form { padding: var(--space-lg); margin-bottom: var(--space-xl); }
+  .comment-form textarea { width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-md); resize: vertical; min-height: 90px; font-family: inherit; background: #fff; transition: border-color var(--dur-base) ease; }
+  .comment-form textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(138,166,184,0.15); }
+  .comment-form .row { display: flex; gap: var(--space-md); margin-top: var(--space-md); align-items: center; }
+  .comment-form input { flex: 1; height: 40px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0 var(--space-md); background: #fff; }
+  .comment-list { display: flex; flex-direction: column; gap: var(--space-xl); }
+  .comment-item { display: flex; gap: var(--space-md); }
+  .comment-item .avatar { width: 44px; height: 44px; border-radius: 50%; background: var(--gradient-primary); flex-shrink: 0; }
+  .comment-item .c-body { flex: 1; }
+  .comment-item .c-name { font-weight: 500; }
+  .comment-item .c-time { color: var(--color-text-placeholder); font-size: var(--font-caption); margin-left: var(--space-sm); }
+  .comment-item .c-text { color: var(--color-text-regular); margin: var(--space-xs) 0; }
+  .comment-item .reply { font-size: var(--font-caption); color: var(--color-primary); cursor: pointer; }
+  .comment-item .children { margin-top: var(--space-md); padding-left: var(--space-xl); border-left: 1px solid var(--color-border-light); }
+
+  @media (max-width: 992px) {
+    .article-layout { grid-template-columns: 1fr; padding: var(--space-xl) var(--space-md); }
+    .post-body, .comments { grid-column: 1; }
+    .toc { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="logo">◍ 我的博客</div>
+    <nav class="nav">
+      <a href="index.html">首页</a>
+      <a href="category.html">分类</a>
+      <a href="archive.html">归档</a>
+      <a href="message.html">留言</a>
+      <a href="#">关于</a>
+    </nav>
+    <input class="search-box" placeholder="搜索文章…">
+  </div>
+</header>
+
+<section class="article-header">
+  <div class="container">
+    <div class="meta"><span class="tag">后端</span></div>
+    <h1>从零搭建 Spring Boot + Vue 个人博客</h1>
+    <div class="meta">
+      <span>📅 2026-08-01</span><span>👁 128 阅读</span><span>💬 6 评论</span><span>✍ 博主</span>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="article-layout">
+    <!-- 正文 -->
+    <article class="post-body">
+      <div class="post-content fade-up">
+        <h2 id="s1">一、项目背景</h2>
+        <p>作为一名即将升入本科的软件工程学生，我希望通过一个完整的博客项目，把学过的 Spring、Vue、MySQL 串联起来，走一遍从设计到上线的工程流程。</p>
+        <blockquote>本文以「前后端分离」为核心架构，后端提供 REST 接口，前端负责展示与交互。</blockquote>
+
+        <h2 id="s2">二、技术选型</h2>
+        <p>后端采用 Spring Boot 3.2 + MyBatis-Plus，前端使用 Vue3 + Element Plus，数据库为 MySQL 8。选择这套组合的原因是学习成本可控、生态成熟。</p>
+
+        <h2 id="s3">三、核心代码示例</h2>
+        <pre>@RestController
+@RequestMapping("/api/articles")
+public class ArticleController {
+    @GetMapping("/{id}")
+    public Result&lt;ArticleVO&gt; detail(@PathVariable Long id) {
+        return Result.success(articleService.getDetail(id));
+    }
+}</pre>
+
+        <h2 id="s4">四、部署上线</h2>
+        <p>最终通过 Nginx 反向代理，将前端静态资源与后端接口统一在同一域名下，并配置 HTTPS 证书完成上线。</p>
+      </div>
+
+      <div class="post-tags">
+        <span class="tag">Spring</span><span class="tag">Vue</span><span class="tag">MySQL</span>
+      </div>
+    </article>
+
+    <!-- 目录 -->
+    <aside class="toc card">
+      <h4>目录</h4>
+      <a href="#s1" class="active">一、项目背景</a>
+      <a href="#s2">二、技术选型</a>
+      <a href="#s3">三、核心代码示例</a>
+      <a href="#s4">四、部署上线</a>
+    </aside>
+
+    <!-- 评论 -->
+    <section class="comments">
+      <h3>评论 · 6</h3>
+      <div class="card comment-form">
+        <textarea placeholder="留下你的看法…"></textarea>
+        <div class="row">
+          <input placeholder="昵称">
+          <input placeholder="邮箱（选填）">
+          <button class="btn btn-primary">发表评论</button>
+        </div>
+      </div>
+
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="avatar"></div>
+          <div class="c-body">
+            <span class="c-name">小明</span><span class="c-time">2026-08-02 10:12</span>
+            <p class="c-text">写得很清晰，跟着做把项目跑起来了，感谢分享！</p>
+            <span class="reply">回复</span>
+            <div class="children">
+              <div class="comment-item">
+                <div class="avatar"></div>
+                <div class="c-body">
+                  <span class="c-name">博主</span><span class="c-time">2026-08-02 11:00</span>
+                  <p class="c-text">很高兴对你有帮助 😊 后续会补一篇部署详解。</p>
+                  <span class="reply">回复</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="comment-item">
+          <div class="avatar"></div>
+          <div class="c-body">
+            <span class="c-name">访客</span><span class="c-time">2026-08-03 09:30</span>
+            <p class="c-text">请问 JWT 那部分有单独的文章吗？</p>
+            <span class="reply">回复</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">© 2026 我的个人博客 · Powered by Spring Boot + Vue3</div>
+</footer>
+
+</body>
+</html>

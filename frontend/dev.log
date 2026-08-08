@@ -1,0 +1,325 @@
+﻿
+> personal-blog-frontend@1.0.0 dev
+> vite
+
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m2718[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32m➜[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m22:17:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/ArticleDetail.vue, /src/views/front/ArticleDetail.vue?vue&type=style&index=0&scoped=de4b94ad&lang.css[22m
+[2m22:19:44[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/router/index.js[22m
+[2m22:19:49[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mmarked[32m[39m
+[2m22:19:49[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m22:19:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/FrontLayout.vue[22m
+[2m22:22:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m22:22:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m22:22:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m22:22:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue?vue&type=style&index=0&scoped=700d9a46&lang.css[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.js[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Archive.vue[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue, /src/views/front/Category.vue[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Message.vue[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue, /src/views/front/ArticleDetail.vue[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2mindex.html[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/router/index.js[22m
+[2m22:39:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles/global.css[22m
+[2m23:12:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue, /src/views/front/Home.vue?vue&type=style&index=0&scoped=700d9a46&lang.css[22m
+[2m23:12:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/FrontLayout.vue[22m
+[2m23:12:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/FrontLayout.vue?vue&type=style&index=0&scoped=b496a1f3&lang.css[22m
+[2m00:16:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue, /src/views/front/ArticleDetail.vue[22m
+[2m00:16:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m00:17:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Message.vue[22m
+[2m00:17:37[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/router/index.js[22m
+node.exe : [2m00:17:37[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/Log
+in.vue" from "src/router/index.js". Does the file exist?
+At line:1 char:1
++ & "D:\Program File(x86)\nodeJS/node.exe" "D:\Program File(x86)\nodeJS ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([2m00:17:37[2...the file exist?:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[2m00:17:37[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Login.v
+ue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:44:29
+[33m  42 |      path: '/admin/login',
+  43 |      name: 'AdminLogin',
+  44 |      component: () => import('@/views/admin/Login.vue'),
+     |                              ^
+  45 |      meta: { title: '后台登录' }
+  46 |    },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:18:35[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/layouts/AdminLayout.vue[22m
+[2m00:18:35[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/Login.vue" fro
+m "src/router/index.js". Does the file exist?
+[2m00:18:35[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Login.v
+ue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:44:29
+[33m  42 |      path: '/admin/login',
+  43 |      name: 'AdminLogin',
+  44 |      component: () => import('@/views/admin/Login.vue'),
+     |                              ^
+  45 |      meta: { title: '后台登录' }
+  46 |    },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 7)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:18:53[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/Login.vue[22m
+[2m00:18:53[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/Dashboard.vue"
+ from "src/router/index.js". Does the file exist?
+[2m00:18:53[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Dashboa
+rd.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:55:33
+[33m  53 |          path: 'dashboard',
+  54 |          name: 'AdminDashboard',
+  55 |          component: () => import('@/views/admin/Dashboard.vue'),
+     |                                  ^
+  56 |          meta: { title: '仪表盘', requiresAuth: true }
+  57 |        },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 9)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:19:19[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/Dashboard.vue[22m
+[2m00:19:19[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/ArticleList.vu
+e" from "src/router/index.js". Does the file exist?
+[2m00:19:19[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Article
+List.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:61:33
+[33m  59 |          path: 'articles',
+  60 |          name: 'AdminArticleList',
+  61 |          component: () => import('@/views/admin/ArticleList.vue'),
+     |                                  ^
+  62 |          meta: { title: '文章管理', requiresAuth: true }
+  63 |        },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 10)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:19:43[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/ArticleList.vue[22m
+[2m00:19:43[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/ArticleEdit.vu
+e" from "src/router/index.js". Does the file exist?
+[2m00:19:43[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Article
+Edit.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:67:33
+[33m  65 |          path: 'articles/create',
+  66 |          name: 'AdminArticleCreate',
+  67 |          component: () => import('@/views/admin/ArticleEdit.vue'),
+     |                                  ^
+  68 |          meta: { title: '写文章', requiresAuth: true }
+  69 |        },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 11)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:20:13[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/ArticleEdit.vue[22m
+[2m00:20:13[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/CommentList.vu
+e" from "src/router/index.js". Does the file exist?
+[2m00:20:13[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Comment
+List.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:79:33
+[33m  77 |          path: 'comments',
+  78 |          name: 'AdminCommentList',
+  79 |          component: () => import('@/views/admin/CommentList.vue'),
+     |                                  ^
+  80 |          meta: { title: '评论管理', requiresAuth: true }
+  81 |        },[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 13)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:20:33[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/CommentList.vue[22m
+[2m00:20:33[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "@/views/admin/MessageList.vu
+e" from "src/router/index.js". Does the file exist?
+[2m00:20:33[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Message
+List.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:85:33
+[33m  83 |          path: 'messages',
+  84 |          name: 'AdminMessageList',
+  85 |          component: () => import('@/views/admin/MessageList.vue'),
+     |                                  ^
+  86 |          meta: { title: '留言管理', requiresAuth: true }
+  87 |        }[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 14)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:20:34[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Message
+List.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:85:33
+[33m  83 |          path: 'messages',
+  84 |          name: 'AdminMessageList',
+  85 |          component: () => import('@/views/admin/MessageList.vue'),
+     |                                  ^
+  86 |          meta: { title: '留言管理', requiresAuth: true }
+  87 |        }[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 14)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:20:34[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "@/views/admin/Message
+List.vue" from "src/router/index.js". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mE:/Personal Blog/frontend/src/router/index.js[39m:85:33
+[33m  83 |          path: 'messages',
+  84 |          name: 'AdminMessageList',
+  85 |          component: () => import('@/views/admin/MessageList.vue'),
+     |                                  ^
+  86 |          meta: { title: '留言管理', requiresAuth: true }
+  87 |        }[39m
+      at TransformPluginContext._formatError (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/de
+p-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2
+jBa.js:49253:16)
+      at normalizeUrl (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at async file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 14)
+      at async TransformPluginContext.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks
+/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK
+3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js
+:51978:27)
+      at async viteTransformMiddleware (file:///E:/Personal%20Blog/frontend/node_modules/vite/dist/node/chunks/dep-BK3b
+2jBa.js:62106:24)
+[2m00:20:52[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/views/admin/MessageList.vue[22m
+[2m00:33:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue?vue&type=style&index=0&scoped=700d9a46&lang.css[22m
+[2m00:41:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/FrontLayout.vue[22m
+[2m00:41:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/layouts/FrontLayout.vue[22m
+[2m00:42:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m00:42:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m00:42:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m00:42:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m00:42:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/views/front/Home.vue[22m
+[2m01:23:12[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/articles?pageNum=1&pageSize=10[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m01:23:12[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/site/stats[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m01:23:12[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tags[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m01:23:12[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/comments/recent?limit=5[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m05:17:53[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/articles?pageNum=1&pageSize=10[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m05:17:53[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/site/stats[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m05:17:53[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/tags[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)
+[2m05:17:53[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/comments/recent?limit=5[39m
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1194:18)
+    at afterConnectMultiple (node:net:1784:7)

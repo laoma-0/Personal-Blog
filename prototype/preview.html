@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>原型预览入口 · 个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .preview-hero { padding: var(--space-3xl) 0 var(--space-2xl); text-align: center; background: var(--gradient-header); position: relative; overflow: hidden; }
+  .preview-hero::before { content:''; position:absolute; inset:0;
+    background: radial-gradient(circle at 25% 30%, rgba(157,184,182,0.35) 0%, transparent 55%),
+                radial-gradient(circle at 78% 65%, rgba(201,174,176,0.3) 0%, transparent 55%); }
+  .preview-hero .inner { position: relative; z-index: 1; }
+  .preview-hero h1 { font-size: 38px; font-weight: 500; margin-bottom: var(--space-sm); }
+  .preview-hero p { color: var(--color-text-secondary); font-size: var(--font-body-lg); }
+  .preview-hero .badge-style { display: inline-block; margin-top: var(--space-md); padding: 6px 18px; border-radius: var(--radius-lg); background: rgba(255,255,255,0.6); color: var(--color-primary-active); font-size: var(--font-caption); }
+
+  .prev-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: var(--space-lg); padding: var(--space-2xl) 0; }
+  .prev-card { padding: 0; overflow: hidden; text-decoration: none; color: inherit; display: block; }
+  .prev-card .thumb { height: 150px; position: relative; }
+  .t-home { background: var(--gradient-header); }
+  .t-article { background: linear-gradient(135deg,#F3ECEF,#E8EEF2); }
+  .t-admin { background: linear-gradient(135deg,#EDF0EA,#DCE4D2); }
+  .t-archive { background: linear-gradient(135deg,#E8EEF2,#D9E6E4); }
+  .t-category { background: linear-gradient(135deg,#F5EFEF,#EEF2F4); }
+  .t-message { background: linear-gradient(135deg,#F3ECEF,#DCE4D2); }
+  .prev-card .thumb .ico { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 44px; opacity: 0.7; }
+  .prev-card .info { padding: var(--space-lg); }
+  .prev-card .info h3 { font-size: var(--font-h3); font-weight: 500; margin-bottom: var(--space-xs); }
+  .prev-card .info p { color: var(--color-text-secondary); font-size: var(--font-caption); }
+</style>
+</head>
+<body>
+
+<section class="preview-hero">
+  <div class="inner container">
+    <h1 class="breathe">个人博客 · 高保真原型</h1>
+    <p>点击下方任意页面进入预览</p>
+    <span class="badge-style">🎨 低饱和莫兰迪 / 水彩渐变 / 大留白 / 极缓慢微动效</span>
+  </div>
+</section>
+
+<div class="container">
+  <div class="prev-grid">
+    <a class="card prev-card fade-up" href="index.html">
+      <div class="thumb t-home"><div class="ico">🏠</div></div>
+      <div class="info"><h3>前台首页</h3><p>水彩页头 · 文章卡片 · 侧边栏</p></div>
+    </a>
+    <a class="card prev-card fade-up" href="article.html">
+      <div class="thumb t-article"><div class="ico">📖</div></div>
+      <div class="info"><h3>文章详情页</h3><p>正文排版 · 目录 TOC · 评论区</p></div>
+    </a>
+    <a class="card prev-card fade-up" href="archive.html">
+      <div class="thumb t-archive"><div class="ico">🕰</div></div>
+      <div class="info"><h3>归档页</h3><p>按年份的时间轴</p></div>
+    </a>
+    <a class="card prev-card fade-up" href="category.html">
+      <div class="thumb t-category"><div class="ico">🗂</div></div>
+      <div class="info"><h3>分类页</h3><p>分类卡片网格</p></div>
+    </a>
+    <a class="card prev-card fade-up" href="message.html">
+      <div class="thumb t-message"><div class="ico">💬</div></div>
+      <div class="info"><h3>留言板</h3><p>留言表单 · 留言列表</p></div>
+    </a>
+    <a class="card prev-card fade-up" href="admin.html">
+      <div class="thumb t-admin"><div class="ico">📊</div></div>
+      <div class="info"><h3>后台管理</h3><p>侧边菜单 · 仪表盘 · 文章表格</p></div>
+    </a>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container">个人博客系统原型 · 与《UI 设计规范 V2.0》配套 · 2026</div>
+</footer>
+
+</body>
+</html>

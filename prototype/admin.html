@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>后台管理 · 我的个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  body { background: var(--color-bg-page); }
+  .admin { display: grid; grid-template-columns: var(--sidebar-width) 1fr; min-height: 100vh; }
+
+  /* 侧边菜单 */
+  .admin-side {
+    background: var(--gradient-header);
+    border-right: 1px solid var(--color-border-light);
+    padding: var(--space-lg) 0;
+    position: sticky; top: 0; height: 100vh;
+  }
+  .admin-side .brand { font-size: 18px; font-weight: 500; letter-spacing: 0.05em; padding: 0 var(--space-lg) var(--space-lg); }
+  .menu { list-style: none; }
+  .menu li a {
+    display: flex; align-items: center; gap: var(--space-sm);
+    padding: 12px var(--space-lg);
+    color: var(--color-text-regular);
+    transition: all var(--dur-base) var(--ease-soft);
+    border-left: 3px solid transparent;
+  }
+  .menu li a:hover { background: rgba(255,255,255,0.5); }
+  .menu li a.active { background: var(--color-primary-light); color: var(--color-primary-active); border-left-color: var(--color-primary); }
+
+  /* 主区 */
+  .admin-main { display: flex; flex-direction: column; }
+  .admin-top {
+    height: 64px; background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--space-xl);
+    position: sticky; top: 0; z-index: 10;
+  }
+  .admin-top .crumb { color: var(--color-text-secondary); font-size: var(--font-caption); }
+  .admin-top .user { display: flex; align-items: center; gap: var(--space-sm); }
+  .admin-top .user .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--gradient-primary); }
+  .admin-content { padding: var(--space-xl); }
+  .page-title { font-size: var(--font-h2); font-weight: 500; margin-bottom: var(--space-lg); }
+
+  /* 统计卡 */
+  .stat-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: var(--space-lg); margin-bottom: var(--space-xl); }
+  .stat-card { padding: var(--space-lg); }
+  .stat-card .label { color: var(--color-text-secondary); font-size: var(--font-caption); }
+  .stat-card .value { font-size: 32px; font-weight: 500; margin-top: var(--space-sm); }
+  .stat-card:nth-child(1) .value { color: var(--color-primary); }
+  .stat-card:nth-child(2) .value { color: var(--color-morandi-green); }
+  .stat-card:nth-child(3) .value { color: var(--color-morandi-apricot); }
+  .stat-card:nth-child(4) .value { color: var(--color-morandi-purple); }
+
+  /* 趋势图占位 */
+  .chart-card { padding: var(--space-lg); margin-bottom: var(--space-xl); }
+  .chart-card h4 { font-weight: 500; margin-bottom: var(--space-lg); }
+  .chart { height: 180px; border-radius: var(--radius-sm); background:
+    linear-gradient(180deg, rgba(138,166,184,0.18) 0%, transparent 100%);
+    position: relative; display: flex; align-items: flex-end; gap: var(--space-md); padding: var(--space-md); }
+  .bar { flex: 1; background: var(--gradient-primary); border-radius: var(--radius-sm) var(--radius-sm) 0 0; transition: height var(--dur-slower) var(--ease-soft); }
+
+  /* 表格 */
+  .table-card { padding: var(--space-lg); }
+  .table-card h4 { font-weight: 500; margin-bottom: var(--space-lg); }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 14px var(--space-md); font-size: var(--font-body); }
+  th { color: var(--color-text-secondary); font-weight: 500; border-bottom: 1px solid var(--color-border); }
+  td { border-bottom: 1px solid var(--color-border-light); }
+  tr { transition: background var(--dur-base) ease; }
+  tbody tr:hover { background: var(--color-border-light); }
+  .badge { padding: 3px 10px; border-radius: var(--radius-sm); font-size: var(--font-caption); }
+  .badge-pub { background: rgba(143,184,154,0.2); color: #5f8a6a; }
+  .badge-draft { background: rgba(216,185,138,0.25); color: #a07c3a; }
+  .op { color: var(--color-primary); cursor: pointer; margin-right: var(--space-md); }
+  .op-del { color: var(--color-danger); }
+
+  @media (max-width: 992px) { .admin { grid-template-columns: 1fr; } .admin-side { display: none; } .stat-grid { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+
+<div class="admin">
+  <!-- 侧边 -->
+  <aside class="admin-side">
+    <div class="brand">◍ 博客后台</div>
+    <ul class="menu">
+      <li><a href="#" class="active">📊 仪表盘</a></li>
+      <li><a href="#">📝 文章管理</a></li>
+      <li><a href="#">🗂 分类标签</a></li>
+      <li><a href="#">💬 评论留言</a></li>
+      <li><a href="#">🖼 图床管理</a></li>
+      <li><a href="#">⚙ 站点设置</a></li>
+    </ul>
+  </aside>
+
+  <!-- 主区 -->
+  <div class="admin-main">
+    <div class="admin-top">
+      <span class="crumb">首页 / 仪表盘</span>
+      <div class="user"><span>博主</span><div class="avatar"></div></div>
+    </div>
+
+    <div class="admin-content">
+      <h1 class="page-title">仪表盘</h1>
+
+      <!-- 统计卡 -->
+      <div class="stat-grid">
+        <div class="card stat-card fade-up"><div class="label">文章总数</div><div class="value">32</div></div>
+        <div class="card stat-card fade-up"><div class="label">评论总数</div><div class="value">86</div></div>
+        <div class="card stat-card fade-up"><div class="label">今日访问</div><div class="value">124</div></div>
+        <div class="card stat-card fade-up"><div class="label">总访问量</div><div class="value">1.2k</div></div>
+      </div>
+
+      <!-- 趋势图 -->
+      <div class="card chart-card fade-up">
+        <h4>近 7 天访问趋势</h4>
+        <div class="chart">
+          <div class="bar" style="height:40%"></div>
+          <div class="bar" style="height:65%"></div>
+          <div class="bar" style="height:50%"></div>
+          <div class="bar" style="height:80%"></div>
+          <div class="bar" style="height:70%"></div>
+          <div class="bar" style="height:90%"></div>
+          <div class="bar" style="height:60%"></div>
+        </div>
+      </div>
+
+      <!-- 文章管理表格 -->
+      <div class="card table-card fade-up">
+        <h4>最近文章</h4>
+        <table>
+          <thead>
+            <tr><th>标题</th><th>分类</th><th>状态</th><th>阅读</th><th>发布时间</th><th>操作</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>从零搭建 Spring Boot + Vue 个人博客</td>
+              <td>后端</td><td><span class="badge badge-pub">已发布</span></td>
+              <td>128</td><td>2026-08-01</td>
+              <td><span class="op">编辑</span><span class="op op-del">删除</span></td>
+            </tr>
+            <tr>
+              <td>MyBatis-Plus 分页与条件构造器实战</td>
+              <td>Spring</td><td><span class="badge badge-pub">已发布</span></td>
+              <td>96</td><td>2026-07-28</td>
+              <td><span class="op">编辑</span><span class="op op-del">删除</span></td>
+            </tr>
+            <tr>
+              <td>Redis 缓存文章阅读量的思路（草稿）</td>
+              <td>后端</td><td><span class="badge badge-draft">草稿</span></td>
+              <td>-</td><td>—</td>
+              <td><span class="op">编辑</span><span class="op op-del">删除</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

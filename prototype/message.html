@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>留言板 · 我的个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .page-hero { padding: var(--space-2xl) 0 var(--space-xl); text-align: center; background: var(--gradient-header); }
+  .page-hero h1 { font-size: 32px; font-weight: 500; }
+  .page-hero p { color: var(--color-text-secondary); margin-top: var(--space-sm); }
+  .msg-wrap { max-width: var(--content-width); margin: 0 auto; padding: var(--space-2xl) 0; }
+  .msg-form { padding: var(--space-lg); margin-bottom: var(--space-2xl); }
+  .msg-form textarea { width: 100%; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-md); min-height: 100px; resize: vertical; font-family: inherit; background: #fff; transition: border-color var(--dur-base) ease; }
+  .msg-form textarea:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(138,166,184,0.15); }
+  .msg-form .row { display: flex; gap: var(--space-md); margin-top: var(--space-md); }
+  .msg-form input { flex: 1; height: 40px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0 var(--space-md); background: #fff; }
+  .msg-list { display: flex; flex-direction: column; gap: var(--space-lg); }
+  .msg-item { display: flex; gap: var(--space-md); padding: var(--space-lg); }
+  .msg-item .avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; }
+  .a1 { background: linear-gradient(135deg,#9DB8B6,#8AA6B8); }
+  .a2 { background: linear-gradient(135deg,#C9AEB0,#D2B49C); }
+  .a3 { background: linear-gradient(135deg,#B0A6C0,#A9B8A0); }
+  .msg-item .m-name { font-weight: 500; }
+  .msg-item .m-time { color: var(--color-text-placeholder); font-size: var(--font-caption); margin-left: var(--space-sm); }
+  .msg-item .m-text { color: var(--color-text-regular); margin-top: var(--space-xs); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="logo">◍ 我的博客</div>
+    <nav class="nav">
+      <a href="index.html">首页</a><a href="category.html">分类</a>
+      <a href="archive.html">归档</a><a href="message.html">留言</a><a href="#">关于</a>
+    </nav>
+    <input class="search-box" placeholder="搜索文章…">
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container"><h1>留言板</h1><p>有什么想说的，都可以留在这里 🌿</p></div>
+</section>
+
+<div class="container">
+  <div class="msg-wrap">
+    <div class="card msg-form fade-up">
+      <textarea placeholder="写下你的留言…"></textarea>
+      <div class="row">
+        <input placeholder="昵称">
+        <input placeholder="邮箱（选填）">
+        <button class="btn btn-primary">发表留言</button>
+      </div>
+    </div>
+
+    <div class="msg-list">
+      <div class="card msg-item fade-up">
+        <div class="avatar a1"></div>
+        <div><span class="m-name">小明</span><span class="m-time">2026-08-02</span>
+          <p class="m-text">博客做得真好看，这个配色太治愈了！</p></div>
+      </div>
+      <div class="card msg-item fade-up">
+        <div class="avatar a2"></div>
+        <div><span class="m-name">阿强</span><span class="m-time">2026-07-30</span>
+          <p class="m-text">期待更多 Vue 相关的文章～</p></div>
+      </div>
+      <div class="card msg-item fade-up">
+        <div class="avatar a3"></div>
+        <div><span class="m-name">访客</span><span class="m-time">2026-07-25</span>
+          <p class="m-text">加油！关注了，一起进步。</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container">© 2026 我的个人博客</div></footer>
+</body>
+</html>

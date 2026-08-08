@@ -1,0 +1,49 @@
+{
+  "name": "blog-miniprogram",
+  "version": "1.0.0",
+  "private": true,
+  "description": "个人博客微信小程序（Taro）——与网站共享同一后端 API",
+  "templateInfo": {
+    "name": "default",
+    "typescript": false,
+    "css": "sass",
+    "framework": "react"
+  },
+  "scripts": {
+    "dev:weapp": "taro build --type weapp --watch",
+    "build:weapp": "taro build --type weapp",
+    "dev:h5": "taro build --type h5 --watch",
+    "build:h5": "taro build --type h5"
+  },
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.24.0",
+    "@tarojs/components": "3.6.34",
+    "@tarojs/helper": "3.6.34",
+    "@tarojs/plugin-framework-react": "3.6.34",
+    "@tarojs/plugin-platform-h5": "^3.6.34",
+    "@tarojs/plugin-platform-weapp": "3.6.34",
+    "@tarojs/react": "3.6.34",
+    "@tarojs/runtime": "3.6.34",
+    "@tarojs/shared": "3.6.34",
+    "@tarojs/taro": "3.6.34",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.6.2",
+    "@tarojs/cli": "3.6.34",
+    "@tarojs/webpack5-runner": "3.6.34",
+    "@types/react": "^18.2.0",
+    "@types/webpack-env": "^1.18.0",
+    "babel-preset-taro": "3.6.34",
+    "postcss": "^8.4.0",
+    "react-refresh": "^0.14.2",
+    "webpack": "5.91.0"
+  }
+}

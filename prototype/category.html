@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>分类 · 我的个人博客</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .page-hero { padding: var(--space-2xl) 0 var(--space-xl); text-align: center; background: var(--gradient-header); }
+  .page-hero h1 { font-size: 32px; font-weight: 500; }
+  .page-hero p { color: var(--color-text-secondary); margin-top: var(--space-sm); }
+  .cat-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap: var(--space-lg); padding: var(--space-2xl) 0; }
+  .cat-card { padding: var(--space-xl); text-align: center; }
+  .cat-card .icon { width: 56px; height: 56px; border-radius: var(--radius-md); margin: 0 auto var(--space-md); }
+  .cat-card:nth-child(1) .icon { background: linear-gradient(135deg,#9DB8B6,#8AA6B8); }
+  .cat-card:nth-child(2) .icon { background: linear-gradient(135deg,#A9B8A0,#C9AEB0); }
+  .cat-card:nth-child(3) .icon { background: linear-gradient(135deg,#D2B49C,#B0A6C0); }
+  .cat-card:nth-child(4) .icon { background: linear-gradient(135deg,#C9AEB0,#9DB8B6); }
+  .cat-card h3 { font-size: var(--font-h3); font-weight: 500; }
+  .cat-card .count { color: var(--color-text-secondary); font-size: var(--font-caption); margin-top: var(--space-xs); }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="logo">◍ 我的博客</div>
+    <nav class="nav">
+      <a href="index.html">首页</a><a href="category.html">分类</a>
+      <a href="archive.html">归档</a><a href="message.html">留言</a><a href="#">关于</a>
+    </nav>
+    <input class="search-box" placeholder="搜索文章…">
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container"><h1>文章分类</h1><p>按主题浏览所有内容</p></div>
+</section>
+
+<div class="container">
+  <div class="cat-grid">
+    <a class="card cat-card fade-up"><div class="icon"></div><h3>后端</h3><div class="count">12 篇文章</div></a>
+    <a class="card cat-card fade-up"><div class="icon"></div><h3>前端</h3><div class="count">9 篇文章</div></a>
+    <a class="card cat-card fade-up"><div class="icon"></div><h3>数据库</h3><div class="count">6 篇文章</div></a>
+    <a class="card cat-card fade-up"><div class="icon"></div><h3>随笔</h3><div class="count">5 篇文章</div></a>
+  </div>
+</div>
+
+<footer class="site-footer"><div class="container">© 2026 我的个人博客</div></footer>
+</body>
+</html>

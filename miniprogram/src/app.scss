@@ -1,0 +1,96 @@
+/* ============================================================
+   全局设计令牌 —— 低饱和莫兰迪 / 水彩渐变风格
+   与网站 frontend/src/styles/global.css 一一对应，px→rpx（1px=2rpx）
+   ============================================================ */
+page {
+  /* 主色 —— 雾蓝灰 */
+  --color-primary: #8AA6B8;
+  --color-primary-hover: #7A97AA;
+  --color-primary-active: #6A889C;
+  --color-primary-light: #E8EEF2;
+
+  /* 莫兰迪辅助色 */
+  --color-morandi-pink: #C9AEB0;
+  --color-morandi-green: #A9B8A0;
+  --color-morandi-apricot: #D2B49C;
+  --color-morandi-purple: #B0A6C0;
+  --color-morandi-cyan: #9DB8B6;
+
+  /* 水彩渐变 */
+  --gradient-header: linear-gradient(135deg, #E8EEF2 0%, #F3ECEF 50%, #EDF0EA 100%);
+  --gradient-primary: linear-gradient(135deg, #9DB8B6 0%, #8AA6B8 100%);
+  --gradient-soft: linear-gradient(135deg, #F5EFEF 0%, #EEF2F4 100%);
+
+  /* 中性色（暖调） */
+  --color-text-primary: #3A3B3C;
+  --color-text-regular: #5C5E60;
+  --color-text-secondary: #8C8E90;
+  --color-text-placeholder: #BEC0C2;
+  --color-border: #E6E3E0;
+  --color-border-light: #F1EFEC;
+  --color-bg: #FDFCFA;
+  --color-bg-page: #F6F4F1;
+
+  /* 圆角 */
+  --radius-sm: 16rpx;
+  --radius-md: 32rpx;
+  --radius-lg: 48rpx;
+
+  /* 阴影（弥散柔光） */
+  --shadow-sm: 0 8rpx 32rpx rgba(120, 110, 100, 0.05);
+  --shadow-md: 0 16rpx 64rpx rgba(120, 110, 100, 0.07);
+
+  background: var(--color-bg-page);
+  color: var(--color-text-primary);
+  font-size: 30rpx;
+  line-height: 1.9;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+view, text { box-sizing: border-box; }
+
+/* 通用卡片 */
+.card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1rpx solid var(--color-border-light);
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 4rpx 24rpx;
+  font-size: 26rpx;
+  color: var(--color-primary-active);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-sm);
+}
+
+/* meta 行 */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  color: var(--color-text-secondary);
+  font-size: 26rpx;
+}
+.meta .meta-item { margin-right: 24rpx; }
+
+/* 进场渐显上移（克制动效）
+   注意：不要用 opacity:0 作为常驻初始态，真机若动画未触发会永久透明导致白屏。
+   这里用 both 保留终态，并显式让元素默认可见。 */
+@keyframes fadeUp {
+  from { opacity: 0.001; transform: translateY(24rpx); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 1;
+  animation: fadeUp 0.6s ease both;
+}
+
+/* 无封面占位渐变（首页/列表用 class，避免内联渐变 style 在真机异常） */
+.cover-0 { background: linear-gradient(135deg, #E8EEF2, #D9E6E4); }
+.cover-1 { background: linear-gradient(135deg, #F3ECEF, #E8D8DB); }
+.cover-2 { background: linear-gradient(135deg, #EDF0EA, #DCE4D2); }
+.cover-3 { background: linear-gradient(135deg, #EFEAF0, #E1D8E6); }

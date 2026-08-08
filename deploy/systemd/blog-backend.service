@@ -1,0 +1,19 @@
+[Unit]
+Description=Personal Blog Spring Boot Backend
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=blog
+WorkingDirectory=/opt/blog
+# 敏感值放独立 env 文件（chmod 600，不入库）
+EnvironmentFile=/opt/blog/blog-backend.env
+Environment=SPRING_PROFILES_ACTIVE=prod
+ExecStart=/usr/bin/java -jar /opt/blog/personal-blog-1.0.0.jar
+# Spring Boot 收到 SIGTERM 正常退出码为 143，视为成功
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
